@@ -31,6 +31,8 @@ class ShapeView @JvmOverloads constructor(
         typeface = Typeface.DEFAULT_BOLD
     }
 
+    private val restartMessage: String by lazy { context.getString(R.string.game_over) }
+
     init {
         val typeArray = context.theme.obtainStyledAttributes(
             attributeSet,
@@ -78,7 +80,7 @@ class ShapeView @JvmOverloads constructor(
 
     private fun clearShapes() {
         shapes.clear()
-        Toast.makeText(context, "Game over", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, restartMessage, Toast.LENGTH_SHORT).show()
     }
 
     override fun onDraw(canvas: Canvas) {

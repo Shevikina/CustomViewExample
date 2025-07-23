@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">CustomViewExample</string>
+    <string name="game_over">Game over!</string>
 </resources>
