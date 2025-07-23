@@ -1,5 +1,6 @@
 package com.example.customviewexample
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -16,5 +17,15 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        val shapeView = findViewById<ShapeView>(R.id.shape_v)
+        shapeView.setIntColors(
+            listOf(
+                Color.CYAN,
+                Color.DKGRAY,
+                Color.MAGENTA,
+                Color.LTGRAY
+            )
+        )
     }
 }
