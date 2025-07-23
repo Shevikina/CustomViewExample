@@ -8,7 +8,7 @@ import android.graphics.RectF
 import android.graphics.Typeface
 import android.util.AttributeSet
 import android.view.MotionEvent
-import android.view.MotionEvent.ACTION_UP
+import android.view.MotionEvent.ACTION_DOWN
 import android.view.View
 import android.widget.Toast
 import androidx.core.graphics.toColorInt
@@ -53,9 +53,8 @@ class ShapeView @JvmOverloads constructor(
     }
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
-        if (event?.action == ACTION_UP) {
+        if (event?.action == ACTION_DOWN) {
             addRandomShape(event.x, event.y)
-            performClick()
             return true
         }
         return super.onTouchEvent(event)
@@ -72,7 +71,7 @@ class ShapeView @JvmOverloads constructor(
             )
         )
 
-        if (shapes.count() >= 10) clearShapes()
+        if (shapes.count() >= MAX_SHAPE_COUNT) clearShapes()
 
         invalidate()
     }
@@ -135,6 +134,7 @@ class ShapeView @JvmOverloads constructor(
 
     companion object {
         const val DEFAULT_SHAPE_COLOR = Color.GREEN
+        const val MAX_SHAPE_COUNT = 10
         const val MIN_SHAPE_SIZE = 20.0
         const val MAX_SHAPE_SIZE = 50.0
         const val RECT_RADIUS = 15f
